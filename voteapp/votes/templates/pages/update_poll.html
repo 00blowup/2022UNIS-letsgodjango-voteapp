@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>투표 주제 수정하기</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+  <form action="{% url 'update_poll' topic.id %}" method="post">
+    {% csrf_token %}
+    {{ update_form.as_p }}
+      <button type="submit">수정</button>
+  </form>
+</body>
+</html>

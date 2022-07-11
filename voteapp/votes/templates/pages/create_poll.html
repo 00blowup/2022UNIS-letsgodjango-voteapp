@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>익명 투표 생성하기</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+   <form action="{% url 'create_poll' %}" method="post">
+     {% csrf_token %}
+     {{ create_form.as_p }}
+     <button type="submit">생성</button>
+   </form>
+</body>
+</html>

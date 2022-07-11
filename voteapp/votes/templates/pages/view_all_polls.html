@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>익명 투표 사이트</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <a href="{% url 'create_poll' %}"><button>새 투표 주제 추가</button></a>
+    <h1>모든 투표 주제</h1>
+    {% if topics %}
+        {% for item in topics %}
+        <article>
+            <div>{{ item.title }}</div>
+            <div><a href="{% url 'view_poll_by_id' item.id %}">상세보기</a></div>
+        </article>
+        {% endfor %}
+    {% else %}
+        <div>투표 주제가 없습니다.</div>
+    {% endif %}
+</body>
+</html>
